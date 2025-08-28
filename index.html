@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NTR // Coming Soon</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      width: 100%;
+      font-family: 'Courier New', Courier, monospace;
+      background: radial-gradient(#0e0e0e, #000000);
+      color: #00ffcc;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .logo {
+      width: 220px;
+      max-width: 50vw;
+      filter: drop-shadow(0 0 5px #00ffcc);
+      opacity: 0;
+      animation: logoFade 1.5s ease-in forwards;
+      animation-delay: 5.5s;
+      margin-bottom: 30px;
+    }
+
+    .boot-text {
+      color: #00ffcc;
+      font-size: 1rem;
+      line-height: 1.6;
+      max-width: 90%;
+      text-align: left;
+      white-space: pre-line;
+      overflow: hidden;
+    }
+
+    .line {
+      opacity: 0;
+      animation: typeIn 0.8s steps(40, end) forwards;
+    }
+
+    .line:nth-child(1) { animation-delay: 0.2s; }
+    .line:nth-child(2) { animation-delay: 1s; }
+    .line:nth-child(3) { animation-delay: 1.8s; }
+    .line:nth-child(4) { animation-delay: 2.6s; }
+    .line:nth-child(5) { animation-delay: 3.4s; }
+
+    .tagline, .coming {
+      opacity: 0;
+      margin: 15px 0;
+    }
+
+    .tagline {
+      font-size: 1.2rem;
+      animation: fadeIn 1.5s ease-in forwards;
+      animation-delay: 6s;
+    }
+
+    .coming {
+      font-size: 2rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      animation: fadeIn 2s ease-in forwards;
+      animation-delay: 7s;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    @keyframes logoFade {
+      to { opacity: 1; }
+    }
+
+    @keyframes typeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @media (max-width: 600px) {
+      .coming {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="boot-text" id="boot">
+    <div class="line">Initializing NTR Software...</div>
+    <div class="line">Loading core modules...</div>
+    <div class="line">Authenticating identity...</div>
+    <div class="line">Preparing drop interface...</div>
+    <div class="line">✔ Systems Ready</div>
+  </div>
+
+  <img src="https://i.imgur.com/vktm2RN.png" alt="NTR Logo" class="logo">
+  <div class="tagline">No Time To Rest</div>
+  <div class="coming">Coming Soon</div>
+
+  <script>
+    setTimeout(() => {
+      document.getElementById("boot").style.display = "none";
+    }, 5000);
+  </script>
+</body>
+</html>
