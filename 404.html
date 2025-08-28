@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>404 - Page Not Found</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+      background-image: url('https://grainy-gradients.vercel.app/noise.svg');
+      font-family: 'Courier New', Courier, monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .popup {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #dcdcdc;
+      border: 2px solid black;
+      width: 400px;
+      box-shadow: 5px 5px 0px black;
+      padding: 20px;
+    }
+
+    .popup-header {
+      background-color: #003399;
+      color: white;
+      width: 100%;
+      padding: 5px 10px;
+      font-weight: bold;
+      font-size: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .popup-content {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .popup-content h1 {
+      font-size: 24px;
+      margin: 10px 0;
+    }
+
+    .popup-content p {
+      margin: 10px 0;
+    }
+
+    .ok-button {
+      background-color: white;
+      border: 2px solid black;
+      padding: 5px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="popup">
+    <div class="popup-header">
+      <span>404 ERROR</span>
+      <span>X</span>
+    </div>
+    <div class="popup-content">
+      <h1>PAGE NOT FOUND</h1>
+      <p>We looked everywhere, but that page doesn’t exist.</p>
+      <a href="/" class="ok-button">Go Home</a>
+    </div>
+  </div>
+</body>
+</html>
