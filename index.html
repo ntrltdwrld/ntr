@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NTR - Coming Soon</title>
   <style>
     body {
@@ -20,21 +20,24 @@
 
     .boot {
       position: absolute;
-      top: 20%;
-      left: 5%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Courier New', Courier, monospace;
+      color: black;
       font-size: 1.2rem;
       line-height: 1.6;
-      color: black;
-      white-space: pre;
     }
 
     .line {
       opacity: 0;
-      animation: fadeIn 0.5s ease forwards;
+      animation: fadeIn 0.8s forwards;
     }
 
     @keyframes fadeIn {
-      to { opacity: 1; }
+      to {
+        opacity: 1;
+      }
     }
 
     .popup {
@@ -82,10 +85,11 @@
       margin: 10px 0;
     }
 
-    .slogan {
+    .coming-soon {
       font-weight: bold;
-      font-size: 18px;
+      font-size: 20px;
       margin-top: 10px;
+      letter-spacing: 1px;
     }
 
     .ok-button {
@@ -106,7 +110,7 @@
   <div class="boot" id="boot">
     <div class="line" style="animation-delay: 0s">NTR LTD SOFTWARE BIOS v1.09</div>
     <div class="line" style="animation-delay: 0.8s">Copyright © 2025</div>
-    <div class="line" style="animation-delay: 1.6s">\n</div>
+    <div class="line" style="animation-delay: 1.6s">&nbsp;</div>
     <div class="line" style="animation-delay: 2.4s">Detecting drive... OK</div>
     <div class="line" style="animation-delay: 3.2s">Loading system... OK</div>
     <div class="line" style="animation-delay: 4s">Launching GUI...</div>
@@ -114,26 +118,21 @@
 
   <div class="popup" id="popup">
     <div class="popup-header">
-      <span>No Time To Rest</span>
+      <span>NO TIME TO REST</span>
       <span>X</span>
     </div>
     <div class="popup-content">
       <img src="./logo.png" alt="NTR Logo" />
-      <div class="slogan" style="font-size: 24px; font-weight: 700; margin-top: 20px;">COMING SOON</div>
+      <div class="coming-soon">COMING SOON</div>
+      <button class="ok-button">OK</button>
     </div>
   </div>
 
   <script>
-    // Animate boot lines
-    const lines = document.querySelectorAll('.line');
-    lines.forEach((line, index) => {
-      line.style.animationDelay = `${index * 0.8}s`;
-    });
-
-    // Show popup after boot
     setTimeout(() => {
       document.getElementById('boot').style.display = 'none';
-      document.getElementById('popup').style.display = 'flex';
+      const popup = document.getElementById('popup');
+      popup.style.display = 'flex';
     }, 5200);
   </script>
 </body>
