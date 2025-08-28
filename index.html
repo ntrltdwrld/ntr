@@ -1,117 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NTR // Coming Soon</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NTR - Coming Soon</title>
   <style>
-    * {
+    body {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
+      background-color: #f5f5f5;
+      background-image: url('https://grainy-gradients.vercel.app/noise.svg');
+      font-family: 'Courier New', Courier, monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
     }
 
-    html, body {
-      height: 100%;
-      width: 100%;
+    .typing-sequence {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      text-align: center;
+      font-size: 1.5rem;
       font-family: 'Courier New', Courier, monospace;
-      background: radial-gradient(#0e0e0e, #000000);
-      color: #00ffcc;
-      display: flex;
+    }
+
+    .typing-line {
+      display: block;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid black;
+      width: 0ch;
+      animation: typing 1.2s steps(20, end) forwards, blink 0.75s step-end infinite;
+    }
+
+    .typing-line:nth-child(2) {
+      animation-delay: 1.3s;
+    }
+    .typing-line:nth-child(3) {
+      animation-delay: 2.6s;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 20ch; }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    .popup {
+      display: none;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      overflow: hidden;
+      background-color: #dcdcdc;
+      border: 2px solid black;
+      width: 400px;
+      box-shadow: 5px 5px 0px black;
+      padding: 20px;
+      font-family: 'Courier New', Courier, monospace;
+    }
+
+    .popup-header {
+      background-color: #003399;
+      color: white;
+      width: 100%;
+      padding: 5px 10px;
+      font-weight: bold;
+      font-size: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .popup-content {
+      margin-top: 20px;
       text-align: center;
     }
 
-    .logo {
-      width: 220px;
-      max-width: 50vw;
-      filter: drop-shadow(0 0 5px #00ffcc);
-      opacity: 0;
-      animation: logoFade 1.5s ease-in forwards;
-      animation-delay: 5.5s;
-      margin-bottom: 30px;
+    .popup-content img {
+      width: 150px;
+      margin: 20px 0;
     }
 
-    .boot-text {
-      color: #00ffcc;
-      font-size: 1rem;
-      line-height: 1.6;
-      max-width: 90%;
-      text-align: left;
-      white-space: pre-line;
-      overflow: hidden;
+    .slogan {
+      font-weight: bold;
+      font-size: 18px;
+      margin-top: 10px;
     }
 
-    .line {
-      opacity: 0;
-      animation: typeIn 0.8s steps(40, end) forwards;
+    .coming-soon {
+      font-size: 16px;
+      margin-top: 10px;
     }
 
-    .line:nth-child(1) { animation-delay: 0.2s; }
-    .line:nth-child(2) { animation-delay: 1s; }
-    .line:nth-child(3) { animation-delay: 1.8s; }
-    .line:nth-child(4) { animation-delay: 2.6s; }
-    .line:nth-child(5) { animation-delay: 3.4s; }
-
-    .tagline, .coming {
-      opacity: 0;
-      margin: 15px 0;
+    .ok-button {
+      background-color: white;
+      border: 2px solid black;
+      padding: 5px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 20px;
     }
 
-    .tagline {
-      font-size: 1.2rem;
-      animation: fadeIn 1.5s ease-in forwards;
-      animation-delay: 6s;
-    }
-
-    .coming {
-      font-size: 2rem;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      animation: fadeIn 2s ease-in forwards;
-      animation-delay: 7s;
-    }
-
-    @keyframes fadeIn {
-      to { opacity: 1; }
-    }
-
-    @keyframes logoFade {
-      to { opacity: 1; }
-    }
-
-    @keyframes typeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    @media (max-width: 600px) {
-      .coming {
-        font-size: 1.5rem;
-      }
+    .ok-button:hover {
+      background-color: #e6e6e6;
     }
   </style>
 </head>
 <body>
-  <div class="boot-text" id="boot">
-    <div class="line">Initializing NTR Software...</div>
-    <div class="line">Loading core modules...</div>
-    <div class="line">Authenticating identity...</div>
-    <div class="line">Preparing drop interface...</div>
-    <div class="line">✔ Systems Ready</div>
+  <div class="typing-sequence" id="boot-sequence">
+    <span class="typing-line">initialising...</span>
+    <span class="typing-line">authenticating...</span>
+    <span class="typing-line">system ready</span>
   </div>
 
-  <img src="https://i.imgur.com/vktm2RN.png" alt="NTR Logo" class="logo">
-  <div class="tagline">No Time To Rest</div>
-  <div class="coming">Coming Soon</div>
+  <div class="popup" id="popup">
+    <div class="popup-header">
+      <span>Coming soon</span>
+      <span>X</span>
+    </div>
+    <div class="popup-content">
+      <img src="./logo.png" alt="NTR Logo" />
+      <div class="slogan">No Time To Rest</div>
+      <div class="coming-soon">Coming Soon</div>
+      <button class="ok-button">OK</button>
+    </div>
+  </div>
 
   <script>
     setTimeout(() => {
-      document.getElementById("boot").style.display = "none";
-    }, 5000);
+      document.getElementById('boot-sequence').style.display = 'none';
+      document.getElementById('popup').style.display = 'flex';
+    }, 4000); // Waits for all typing animations to complete
   </script>
 </body>
 </html>
