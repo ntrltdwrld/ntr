@@ -18,21 +18,23 @@
       overflow: hidden;
     }
 
-    .typing {
-      font-size: 1.5rem;
-      white-space: nowrap;
-      overflow: hidden;
-      border-right: 0.15em solid black;
-      animation: typing 2s steps(20, end), blink 0.75s step-end infinite;
+    .boot {
+      position: absolute;
+      top: 20%;
+      left: 5%;
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: black;
+      white-space: pre;
     }
 
-    @keyframes typing {
-      from { width: 0 }
-      to { width: 12ch }
+    .line {
+      opacity: 0;
+      animation: fadeIn 0.5s ease forwards;
     }
 
-    @keyframes blink {
-      50% { border-color: transparent }
+    @keyframes fadeIn {
+      to { opacity: 1; }
     }
 
     .popup {
@@ -98,36 +100,41 @@
     .ok-button:hover {
       background-color: #e6e6e6;
     }
-
-    .cursor {
-      position: absolute;
-      bottom: 10px;
-      right: 10px;
-      font-size: 18px;
-    }
   </style>
 </head>
 <body>
-  <div class="typing" id="initialising">initialising...</div>
+  <div class="boot" id="boot">
+    <div class="line" style="animation-delay: 0s">NTR LTD SOFTWARE BIOS v1.09</div>
+    <div class="line" style="animation-delay: 0.8s">Copyright © 2025</div>
+    <div class="line" style="animation-delay: 1.6s">\n</div>
+    <div class="line" style="animation-delay: 2.4s">Detecting drive... OK</div>
+    <div class="line" style="animation-delay: 3.2s">Loading system... OK</div>
+    <div class="line" style="animation-delay: 4s">Launching GUI...</div>
+  </div>
 
   <div class="popup" id="popup">
     <div class="popup-header">
-      <span>Coming soon</span>
+      <span>No Time To Rest</span>
       <span>X</span>
     </div>
     <div class="popup-content">
       <img src="./logo.png" alt="NTR Logo" />
-      <div class="slogan">No Time To Rest</div>
-      <button class="ok-button">OK</button>
+      <div class="slogan" style="font-size: 24px; font-weight: 700; margin-top: 20px;">COMING SOON</div>
     </div>
   </div>
 
   <script>
+    // Animate boot lines
+    const lines = document.querySelectorAll('.line');
+    lines.forEach((line, index) => {
+      line.style.animationDelay = `${index * 0.8}s`;
+    });
+
+    // Show popup after boot
     setTimeout(() => {
-      document.getElementById('initialising').style.display = 'none';
-      const popup = document.getElementById('popup');
-      popup.style.display = 'flex';
-    }, 2500);
+      document.getElementById('boot').style.display = 'none';
+      document.getElementById('popup').style.display = 'flex';
+    }, 5200);
   </script>
 </body>
 </html>
